@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mark Maddocks">
+    <meta name="description" content="Buy collectable bobbleheads and create custom bobbleheads">
+
+    <!-- Title & Favicon -->
+    <title>BobbleShop - Custom Made</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"><!-- Non min for dev -->
+    <link rel="stylesheet" type="text/css" href="css/style.css"><!-- main style sheet -->
+    
+    <!-- Picturefill.js <picture> support across browsers -->
+    <script>
+        // Picture element HTML5 shiv
+        document.createElement( "picture" );
+    </script>
+    <script src="js/picturefill.js" async></script>
+    
+</head>
+
+<body>
+    
+    
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            
+            <!-- Logo and nav toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="images/logo.svg" width="27" height="40" alt="Boobleheads Logo"></a>
+            </div> <!-- closing .navbar-header -->
+            
+            <!-- Navigation links for toggling -->
+            <div id="navbar" class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Shop</a></li>
+                    <li class="active"><a href="custom.html">Custom Made</a></li>
+                    <li><a href="#">Collections</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <a href="php/login.php" role="button" class="btn btn-default navbar-btn">Sign in</a>
+            </div> <!-- closing .navbar-collapse -->
+            
+        </div> <!-- closing .container-fluid -->
+    </nav>
+    
+    
+    <!-- Start of main content -->  
+        
+    <div class="form-container container-fluid">
+        
+        <h2 class="text-center">Custom Made.</h2>
+        <span class="heading-line"></span>
+        
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                
+                <p class="text-center">Submit the below form to create you're own Bobblehead.</p>
+                
+                <form id="custom-form" action="php/process_form.php" method="post" onsubmit="return validate()">
+                    <div id="form-group-name" class="form-group">
+                        <label class="sr-only" for="name">Name</label>
+                        <input id="name" class="form-control" type="text" name="yourName" placeholder="Name">
+                        <span id="help-block1" class="help-block hidden">Please enter your name</span>
+                    </div>
+                    <div id="form-group-email" class="form-group">
+                        <label class="sr-only" for="email">Email</label>
+                        <input id="email" class="form-control" type="email" name="yourEmail" placeholder="Email">
+                        <span id="help-block2" class="help-block hidden">Please enter your email</span>
+                    </div>
+                    <div id="form-group-gender" class="form-group">
+                        <label for="male-radio">Bobble Gender:</label>
+                        <label class="radio-inline">
+                            <input id="male-radio" type="radio" name="gender-radio"  value="male">Male
+                        </label>
+                        <label class="radio-inline">
+                            <input id="female-radio" type="radio" name="gender-radio"  value="female">Female
+                        </label>
+                        <span id="help-block3" class="help-block hidden">Please select a gender</span>
+                    </div>
+                    <div id="form-group-select" class="form-group">
+                        <label class="sr-only">Select Bobblehead Style</label>
+                        <select id="bobblehead-select" class="form-control" name="yourSelect">
+                            <option value="select-bobblehead" selected disabled>Select Bobblehead Style</option>
+                            <option value="hulk">Hulk</option>
+                            <option value="iron-man">Iron Man</option>
+                            <option value="captain-america">Captain America</option>
+                            <option value="thor">Thor</option>
+                        </select>
+                        <span id="help-block4" class="help-block hidden">Please select a Bobblehead style</span>
+                    </div>
+                    <div id="form-group-text" class="form-group">
+                        <label class="sr-only" for="description">Description of Bobblehead</label>
+                        <textarea id="description" class="form-control" name="yourText" rows="3" placeholder="Description of Bobblehead"></textarea>
+                        <span id="help-block5" class="help-block hidden">Please describe your bobblehead</span>
+                    </div>
+                    <div id="form-group-file" class="form-group">
+                        <label class="sr-only" for="image-upload">Upload Image</label>
+                        <input id="image-upload" type="file" name="yourFile">
+                        <p class="help-block"><small>* File format (jpeg or png)</small></p>
+                        <span id="help-block6" class="help-block hidden">Please attach a file</span>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+    
+    <!-- End of main content -->
+    
+    <!-- Footer content -->
+    <footer id="footer-navigation" class="clearfix">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 text-center">
+                    <a href="index.html"><img src="images/logo_white.svg" width="145" height="50" alt="Bobbleshop Logo"></a>
+                </div>
+                <div class="footer-items col-xs-12 col-sm-6">
+                    <ul class="footer-nav-items">
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="custom.html">Custom Made</a></li>
+                        <li><a href="#">Collections</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <a href="php/login.html" role="button" class="btn btn-default btn-sm">Sign in</a>
+                </div>
+                <div class="col-xs-12 col-sm-3 social-icons">
+                    <a href="#"><img src="images/social_facebook.svg" width="10" height="20" alt="Bobbleshop Facebook Account"></a>
+                    <a href="#"><img src="images/social_twitter.svg" width="25" height="20" alt="Bobbleshop Twitter Account"></a>
+                    <a href="#"><img src="images/social_instagram.svg" width="20" height="20" alt="Bobbleshop Instagram Account"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <footer id="footer-copyright" class="clearfix text-center">
+        <p><small>&copy; Bobbleheads 2016<a href="privacy">Privacy Policy</a></small></p>
+    </footer>
+    
+    
+    <!-- jQuery (Necessary for Bootstrap's JavaScript plugins)-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <!-- Bootstrap development js file -->
+    <script src="js/bootstrap.js"></script>
+    <!-- Form validation js file -->
+    <script src="js/validation_form.js"></script>
+    
+</body>
+</html>
