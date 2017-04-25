@@ -4,3 +4,6 @@
 + Built on bootstrap 
 + JavaScript form validation 
 + PHP processing of basic login form 
+
+
+![screenshot of of the home page](/screenshot.png?raw=true)
